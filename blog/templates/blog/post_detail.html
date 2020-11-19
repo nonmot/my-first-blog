@@ -1,0 +1,12 @@
+{% extends 'blog/layout.html' %}
+
+
+{% block body %}
+    <div class="container text-center">
+        <h1>{{ post.title }}</h1>
+        <h6>{{ post.author }}</h6>
+        <p>{{ post.text }}</p>
+        <p class="small">{{ post.published_date }}</p>
+    </div>
+{% endblock body %}
+    
