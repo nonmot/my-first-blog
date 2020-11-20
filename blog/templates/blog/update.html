@@ -1,0 +1,16 @@
+{% extends 'blog/layout.html' %}
+
+
+{% block body %}
+<div class="container">
+    <h2>New Post</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ post.as_p }}
+        </div>
+        <button type="submit">投稿する</button>
+    </form>
+</div>
+{% endblock body %}
+    

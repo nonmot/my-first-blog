@@ -3,6 +3,7 @@ from .models import Post
 from .forms import PostForm
 from django.utils import timezone
 from django.shortcuts import redirect
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 def home(request):
@@ -35,3 +36,20 @@ def post_detail(request, pk):
         'post': post
     }
     return render(request, 'blog/post_detail.html', params)
+
+def update(request, pk):
+    post = Post.objects.get(id=pk)
+    if(request.method == 'POST'):
+        newpost = PostForm(request.POST, instance=post)
+        newpost.save()
+        return redirect(to='/')
+    params = {
+        'post': PostForm(instance=post)
+    }
+    return render(request, 'blog/update.html', params)
+
+@require_POST
+def delete(request, pk):
+    post = Post.objects.get(id=pk)
+    post.delete()
+    return redirect(to='/')
