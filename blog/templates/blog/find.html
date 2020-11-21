@@ -1,0 +1,25 @@
+{% extends 'blog/layout.html' %}
+
+
+{% block body %}
+
+<div class="container">
+
+    <form action="{% url 'find' %}" method="post">
+        {% csrf_token %}
+        {{ findform.as_p }}
+    </form>
+
+    {% for post in posts %}
+        <div class="card w-50 mx-auto my-2 text-center" style="width: 18rem;">
+            <div class="card-body">
+                <a href="{% url 'detail' post.id %}" class="card-link"><h5 class="card-title">{{ post.title }}</h5></a>
+                <h6 class="card-subtitle mb-2 text-muted">{{post.author }}</h6>
+                <p class="card-text">{{ post.text }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    
+</div>
+
+{% endblock body %}
