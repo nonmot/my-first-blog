@@ -7,7 +7,7 @@
         <h6>{{ post.author }}</h6>
         <p>{{ post.text }}</p>
         <p class="small">{{ post.published_date }}</p>
-        <form method="post" action="{% url 'update' post.id %}">
+        <form action="{% url 'update' post.id %}">
             {% csrf_token %}
             <button type="submit" class="btn btn-primary" >更新</button>
         </form>
