@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.shortcuts import redirect
 from django.views.decorators.http import require_POST
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -16,6 +17,7 @@ def home(request):
     }
     return render(request, 'blog/post.html', params)
 
+@login_required(login_url='login')
 def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST)

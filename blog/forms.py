@@ -7,4 +7,4 @@ class PostForm(forms.ModelForm):
         fields = ['title', 'text']
 
 class FindForm(forms.Form):
-    find = forms.CharField(label='Find', required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    find = forms.CharField(label='', required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '投稿を検索'}))
