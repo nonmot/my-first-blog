@@ -6,16 +6,21 @@ from django.shortcuts import redirect
 from django.views.decorators.http import require_POST
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from .getNews import headlines
 
 # Create your views here.
 def home(request):
     posts = Post.objects.all()
     findform= FindForm()
+    news = headlines['articles']
+
     params = {
         'findform': findform,
         'posts': posts,
+        'news': news,
     }
     return render(request, 'blog/post.html', params)
+
 
 @login_required(login_url='login')
 def post_new(request):
@@ -30,7 +35,7 @@ def post_new(request):
 
     else:
         form = PostForm()
-    
+
     findform = FindForm()
     params = {
         'findform': findform,

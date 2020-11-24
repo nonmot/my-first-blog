@@ -1,0 +1,8 @@
+.news-item{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.news-item img{
+    width: 100%;
+}
