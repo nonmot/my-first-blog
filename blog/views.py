@@ -11,16 +11,18 @@ from newsapi import NewsApiClient
 
 # Create your views here.
 def home(request):
+    '''
     newsapi = NewsApiClient(api_key=settings.NEWS_API)
     headlines = newsapi.get_top_headlines(country='jp')
+    news = headlines['articles']
+    '''
     posts = Post.objects.all().order_by('published_date').reverse()
     findform= FindForm()
-    news = headlines['articles']
 
     params = {
         'findform': findform,
         'posts': posts,
-        'news': news,
+        #'news': news,
     }
     return render(request, 'blog/post.html', params)
 

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'acounts.apps.AcountsConfig',
-    'newsapi',
+    #'newsapi',
 ]
 
 MIDDLEWARE = [
@@ -130,4 +130,4 @@ LOGOUT_REDIRECT_URL = 'home'
 
 from . import newsapi
 
-NEWS_API = newsapi.NEW_API
+#NEWS_API = newsapi.NEW_API
