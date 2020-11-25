@@ -128,6 +128,6 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-from . import newsapi
+#from . import newsapi
 
 #NEWS_API = newsapi.NEW_API

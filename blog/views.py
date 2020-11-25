@@ -6,8 +6,8 @@ from django.shortcuts import redirect
 from django.views.decorators.http import require_POST
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from django.conf import settings
-from newsapi import NewsApiClient
+#from django.conf import settings
+#from newsapi import NewsApiClient
 
 # Create your views here.
 def home(request):
