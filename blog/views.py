@@ -6,10 +6,13 @@ from django.shortcuts import redirect
 from django.views.decorators.http import require_POST
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from .getNews import headlines
+from newsapi import NewsApiClient
 
 # Create your views here.
 def home(request):
+    NEW_API = "cd964cc7282244a0a81c097d6cbb9197"
+    newsapi = NewsApiClient(api_key=NEW_API)
+    headlines = newsapi.get_top_headlines(country='jp')
     posts = Post.objects.all().order_by('published_date').reverse()
     findform= FindForm()
     news = headlines['articles']
