@@ -12,7 +12,7 @@
     {% endif %}
 </div>
 
-<div class="post-body d-flex mt-4">
+<div class="mx-4 post-body d-flex mt-4">
     <div class="post w-75 p-2">
         <h1 class="text-primary text-center">POST</h1>
         {% for post in posts %}
@@ -29,11 +29,17 @@
     <div class="news w-25 p-2">
         <h1 class="text-primary text-center">NEWS</h1>
         {% for item in news %}
-            <div class="news-item w-100 p-2 my-2">
-                <h6 class="text-primary"><a href="{{ item.url }}">{{ item.title }}</a></h6>
-                {% if item.author %}
-                    <h6>{{ item.author }}</h6>
-                {% endif %}
+            <div class="news-item w-100 p-1 my-2">
+                <a style="text-decoration: none; color: black;" href="{{ item.url }}">
+                    <div class="d-flex">
+                        <img class="w-25" src="{{ item.urlToImage }}" alt="">
+                        <h6 class="ml-2 align-self-center">{{ item.title }}</h6>
+                    </div>
+                    {% if item.author %}
+                        <h6 class="text-right">{{ item.author }}</h6>
+                    {% endif %}
+                    <p class="text-right">{{ item.publishedAt }}</p>
+                </a>
             </div>
         {% endfor %}
     </div>

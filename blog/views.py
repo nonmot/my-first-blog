@@ -10,7 +10,7 @@ from .getNews import headlines
 
 # Create your views here.
 def home(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('published_date').reverse()
     findform= FindForm()
     news = headlines['articles']
 
