@@ -1,0 +1,44 @@
+$charcolor: #333;
+$bordercolor: #777;
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+#navbar {
+    ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+
+        li{
+            margin: 0 10px;
+            justify-content: flex-end;
+
+            &:first-child {
+                font-weight: bold;
+            }
+
+            a{
+                color: $charcolor;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+#post {
+    .post-list {
+        &.h1 {
+            font-size: 20px;
+        }
+
+        & .post-item {
+            margin-top: 10px;
+            padding: 5px;
+            border: solid 1px $bordercolor;
+        }
+    }
+}

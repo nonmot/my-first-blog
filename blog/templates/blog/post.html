@@ -12,15 +12,15 @@
     {% endif %}
 </div>
 
-<div class="mx-4 post-body d-flex mt-4">
-    <div class="post w-100 p-2">
-        <h1 class="text-primary text-center">POST</h1>
+<div class="container">
+    <div class="post-list">
+        <h1>POST</h1>
         {% for post in posts %}
-            <div class="card w-100 mx-auto my-2 text-center" style="width: 18rem;">
-                <div class="card-body">
-                    <a href="{% url 'detail' post.id %}" class="card-link"><h5 class="card-title">{{ post.title }}</h5></a>
-                    <h6 class="card-subtitle mb-2 text-muted">{{post.author }}</h6>
-                    <p class="card-text">{{ post.text }}</p>
+            <div class="post-item">
+                <div class="">
+                    <a href="{% url 'detail' post.id %}"><h5>{{ post.title }}</h5></a>
+                    <h6>{{post.author }}</h6>
+                    <p>{{ post.text }}</p>
                 </div>
             </div>
         {% endfor %}
